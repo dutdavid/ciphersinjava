@@ -1,4 +1,4 @@
 # Ciphers Java Source Code
-Source Code of Ciphers programmed in Java for YT channel
+This is a program that implements a Caesar cipher by encoding and decoding the message input according to a shift of a specified key between 1 and 25.
 
 
