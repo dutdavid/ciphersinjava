@@ -13,7 +13,7 @@ On your terminal:
 Clone the repo: https://github.com/dutdavid/caesar.git
 Build the project: gradle compileJava
 
-##How to run CaesarCipher
+## How to run CaesarCipher
 Type the following commands in the terminal:
 navigate to the folder cd src/main/java
 javac CaesarCipher.java
