@@ -23,5 +23,5 @@ enter message you want to encrypt or decrypt
 choose the encryption or decryption key
 
 
-##Technologies Used
+## Technologies Used
 Java
