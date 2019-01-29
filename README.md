@@ -15,8 +15,12 @@ Build the project: gradle compileJava
 
 ##How to run CaesarCipher
 Type the following commands in the terminal:
+navigate to the folder cd src/main/java
 javac CaesarCipher.java
 java CaesarCipher
+choose 1 for encryption or 2 for decreption
+enter message you want to encrypt or decrypt
+choose the encryption or decryption key
 
 
 ##Technologies Used
