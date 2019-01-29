@@ -15,7 +15,7 @@ class CaesarCipher
  n=str.length();
  char ch1[]=str.toCharArray();
  char ch3,ch4;
- System.out.println("Enter the value by which each letter of the string is to be shifted");
+ System.out.println("Enter the key by which each letter of the string is to be shifted");
  shift=sc.nextInt();
  
  System.out.println();
