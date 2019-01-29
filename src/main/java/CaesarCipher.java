@@ -1,81 +1,65 @@
-
-import java.util.Scanner;
-
-public class CaesarCipher {
-    //we'll be using ASCII in this
-    public static void main(String[] args){
-        System.out.print("1. Encryption\n2. Decryption\nChoose(1,2): ");
-        Scanner in = new Scanner(System.in);
-        int choice = in.nextInt();
-
-        if (choice == 1){
-            System.out.println("Encryption");
-            in.nextLine(); //to pass empty line to scanner to avoid erros
-
-            System.out.println("Message can only be lower or uppercase alphabet");
-            System.out.print("Enter Message: ");
-            String msg = in.nextLine();
-
-            System.out.print("Enter key (0-25): ");  //26 being length of alphabet
-            int key = in.nextInt();
-
-            String encrypMsg = "";
-
-            for (int i = 0; i < msg.length(); i++) {
-                // again casting
-                if ((int)msg.charAt(i) == 32){
-                    encrypMsg += (char)32; // ignoring space, casting int to char
-
-                } else if ((int)msg.charAt(i) + key > 122){
-                    int temp = ((int)msg.charAt(i) + key) - 122;
-                    encrypMsg += (char)(96 + temp);
-
-                } else if ((int)msg.charAt(i) + key > 90 && (int)msg.charAt(i) < 96){
-                    int temp = ((int)msg.charAt(i) + key) - 90;
-                    encrypMsg += (char)(64+temp);
-
-                } else {
-                    encrypMsg += (char)((int)msg.charAt(i) + key);
-
-                }
-            } // for loop
-
-            System.out.println(encrypMsg);
-        } else if (choice == 2){
-            System.out.println("Decryption");
-            in.nextLine();
-
-            System.out.println("Message can only be upper or lowercase alphabet");
-            System.out.print("Enter encrypted Text: ");
-            String encypText = in.nextLine();
-
-            System.out.println("Enter key (0-25): ");
-            int dcyptkey = in.nextInt();
-
-            String decrypMsg = "";
-
-            for (int i = 0; i < encypText.length(); i++) {
-                // now type casting
-                if((int)encypText.charAt(i) == 32){
-                    decrypMsg += (char)32;
-                } else if (((int)encypText.charAt(i) - dcyptkey) < 97 && ((int)encypText.charAt(i) - dcyptkey) > 90) {
-                    //lower case
-                    int temp = ((int)encypText.charAt(i) - dcyptkey) + 26;
-                    decrypMsg += (char)temp;
-                } else if ((encypText.charAt(i) - dcyptkey) < 65) {
-                    // upper case
-                    int temp = ((int)encypText.charAt(i) - dcyptkey) + 26;
-                    decrypMsg += (char)temp;
-                } else {
-                    decrypMsg += (char)((int)encypText.charAt(i) - dcyptkey);
-                }
-
-            } // for loop
-
-            System.out.println(decrypMsg);
-
-        } else {
-            System.out.println("Wrong Choice");
-        }
-    }
+import java.util.*;
+ 
+class CaesarCipher
+{
+ public static void main(String args[])
+ {
+ Scanner sc=new Scanner(System.in);
+ int shift,i,n;
+ String str;
+ String str1="";
+ String str2="";
+ System.out.println("Enter the plaintext");
+ str=sc.nextLine();
+ str=str.toLowerCase();
+ n=str.length();
+ char ch1[]=str.toCharArray();
+ char ch3,ch4;
+ System.out.println("Enter the value by which each letter of the string is to be shifted");
+ shift=sc.nextInt();
+ 
+ System.out.println();
+ System.out.println("Encrypted text is");
+ for(i=0;i<n;i++)
+ {
+ if(Character.isLetter(ch1[i]))
+ {
+ ch3=(char)(((int)ch1[i]+shift-97)%26+97);
+ //System.out.println(ch1[i]+" = "+ch3);
+ str1=str1+ch3;
+ } 
+ else if(ch1[i]==' ')
+ {
+ str1=str1+ch1[i];
+ } 
+ }
+ System.out.println(str1);
+ 
+ System.out.println();
+ System.out.println("Decrypted text is");
+ 
+ char ch2[]=str1.toCharArray();
+ for(i=0;i<str1.length();i++)
+ {
+ if(Character.isLetter(ch2[i]))
+ {
+ if(((int)ch2[i]-shift)<97)
+ {
+ ch4=(char)(((int)ch2[i]-shift-97+26)%26+97);
+ 
+ }
+ else
+ {
+ ch4=(char)(((int)ch2[i]-shift-97)%26+97);
+ }
+ str2=str2+ch4;
+ } 
+ 
+ else if(ch2[i]==' ')
+ {
+ str2=str2+ch2[i];
+ } 
+ }
+ System.out.println(str2);
+ }
 }
